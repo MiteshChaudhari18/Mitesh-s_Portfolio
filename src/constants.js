@@ -220,6 +220,7 @@ export const projects = [
     image: npmLogo,
     tags: ["React JS", "Node.js", "NPM", "Validation"],
     github: "https://github.com/MiteshChaudhari18/Password_Strength_Checker.git",
+    webapp: "https://password-strength-checker-ashen.vercel.app/",
   },
   {
     id: 4,
