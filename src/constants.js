@@ -203,6 +203,7 @@ export const projects = [
     image: csprepLogo,
     tags: ["HTML", "CSS", "JavaScript", "Machine Learning", "React JS", "Node.js", "MongoDB", "Express"],
     github: "https://github.com/MiteshChaudhari18/Crop_Management_System.git",
+    webapp: "https://crop-management-system-2.onrender.com/",
   },
   {
     id: 2,
