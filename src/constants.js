@@ -228,6 +228,7 @@ export const projects = [
     image: taskremLogo,
     tags: ["JavaScript", "Chrome Extension", "HTML", "CSS"],
     github: "https://github.com/MiteshChaudhari18/QR_CodeGenrator.git",
+    webapp: "https://qr-code-genrator-ten.vercel.app/",
   },
   {
     id: 5,
