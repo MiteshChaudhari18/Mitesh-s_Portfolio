@@ -238,5 +238,6 @@ export const projects = [
     image: webverLogo,
     tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
     github: "https://github.com/MiteshChaudhari18/Explore-The-World.git",
+    webapp: "https://explore-the-world-delta.vercel.app/",
   },
 ];
