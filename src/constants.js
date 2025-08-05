@@ -212,6 +212,7 @@ export const projects = [
     image: githubdetLogo,
     tags: ["HTML", "CSS", "JavaScript", "React JS", "API"],
     github: "https://github.com/MiteshChaudhari18/boolean-expression-solver.git",
+    webapp: "https://boolean-expression-solver.vercel.app/",
   },
   {
     id: 3,
