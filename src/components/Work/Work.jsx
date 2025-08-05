@@ -96,15 +96,16 @@ const Work = () => {
                 >
                   View Code
                 </a>
-                {/* Uncomment if live link is available */}
-                {/* <a
+          
+                <a
                   href={selectedProject.webapp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-1/2 text-center bg-[#8B0000] text-white py-2 rounded-lg hover:bg-[#b91372] transition"
                 >
                   View Live
-                </a> */}
+                </a> 
+                
               </div>
             </div>
           </div>
