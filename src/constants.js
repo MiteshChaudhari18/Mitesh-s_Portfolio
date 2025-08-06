@@ -194,6 +194,7 @@ export const projects = [
     image: imagesearchLogo,
     tags: ["Python", "Tkinter", "Requests", "BeautifulSoup", "Pygame", "Threading", "Tor"],
     github: "https://github.com/MiteshChaudhari18/De-anonymizing-Entities-on-Onion-Sites-Operating-on-the-TOR-Network.git",
+    webapp: "https://github.com/MiteshChaudhari18/De-anonymizing-Entities-on-Onion-Sites-Operating-on-the-TOR-Network.git",
   },
   {
     id: 1,
