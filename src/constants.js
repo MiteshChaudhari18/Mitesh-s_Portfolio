@@ -179,7 +179,7 @@ export const education = [
     id: 2,
     img: schoolLogo,
     school: "Jain International School, Jamner",
-    date: "Apr 2010 - March 2020",
+    date: "Apr 2019 - March 2020",
     desc: "I completed my class 10 education from Jain International School, Jamner  under the CBSE board ",
     degree: "CBSE(X)",
   },
