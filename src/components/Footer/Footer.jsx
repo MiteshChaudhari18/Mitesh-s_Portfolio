@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaLinkedin,
   FaInstagram,
@@ -10,6 +10,15 @@ import {
 
 const Footer = () => {
   const [showPhone, setShowPhone] = useState(false);
+  const [views, setViews] = useState(0);
+
+  useEffect(() => {
+    // Fetch and update visitor count
+    fetch('https://api.countapi.xyz/hit/miteshchaudhari18-portfolio/views')
+      .then((res) => res.json())
+      .then((data) => setViews(data.value))
+      .catch((err) => console.error("Failed to fetch view count", err));
+  }, []);
 
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -102,6 +111,13 @@ const Footer = () => {
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Fixed Visitor Counter at Bottom Right */}
+      <div className="fixed bottom-4 right-4 z-50 px-4 py-2 bg-black border border-white/20 rounded">
+        <span className="text-white text-sm font-bold">
+          Views: {views.toLocaleString()}
+        </span>
       </div>
     </footer>
   );
