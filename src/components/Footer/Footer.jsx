@@ -13,67 +13,98 @@ const Footer = () => {
   const [views, setViews] = useState(null); // null = loading, 0 = error or no count
 
   useEffect(() => {
-    // Visitor counter with multiple fallback options
+    // Global visitor counter that works across all browsers
     const sessionKey = 'portfolio_view_counted';
     const hasCounted = sessionStorage.getItem(sessionKey);
     
     const updateViewCount = async () => {
-      // If not counted this session, try to increment
-      if (!hasCounted) {
-        // Try simple CountAPI with a simpler namespace format
+      try {
+        // Try Vercel serverless function first (works across all browsers)
+        const apiUrl = window.location.origin.includes('localhost') 
+          ? 'http://localhost:3000/api/views'  // For local dev
+          : '/api/views';  // For production (Vercel)
+        
         try {
-          const response = await fetch('https://api.countapi.xyz/hit/portfolio.miteshchaudhari/views', {
+          const response = await fetch(apiUrl, {
             method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+            },
           });
           
           if (response.ok) {
             const data = await response.json();
-            console.log('CountAPI response:', data);
+            if (data && typeof data.value === 'number') {
+              setViews(data.value);
+              if (!hasCounted) {
+                sessionStorage.setItem(sessionKey, 'true');
+              }
+              return;
+            }
+          }
+        } catch (apiErr) {
+          console.log('Vercel API failed, trying CountAPI...', apiErr);
+        }
+        
+        // Fallback to CountAPI
+        if (!hasCounted) {
+          try {
+            const countapiResponse = await fetch('https://api.countapi.xyz/hit/portfolio.miteshchaudhari/views', {
+              method: 'GET',
+            });
             
-            if (data && (typeof data.value === 'number' || typeof data.count === 'number')) {
-              const count = data.value || data.count || 0;
-              setViews(count);
-              sessionStorage.setItem(sessionKey, 'true');
-              return;
+            if (countapiResponse.ok) {
+              const countapiData = await countapiResponse.json();
+              if (countapiData && (typeof countapiData.value === 'number' || typeof countapiData.count === 'number')) {
+                const count = countapiData.value || countapiData.count || 0;
+                setViews(count);
+                sessionStorage.setItem(sessionKey, 'true');
+                return;
+              }
             }
+          } catch (countapiErr) {
+            console.log('CountAPI failed');
           }
-        } catch (err) {
-          console.log('CountAPI hit failed:', err.message);
-        }
-        
-        // If CountAPI fails, use localStorage (at least shows something)
-        const localCount = localStorage.getItem('portfolio_views');
-        const newCount = localCount ? parseInt(localCount, 10) + 1 : 1;
-        localStorage.setItem('portfolio_views', newCount.toString());
-        setViews(newCount);
-        sessionStorage.setItem(sessionKey, 'true');
-      } else {
-        // Already counted this session, just fetch current value
-        try {
-          // Try to get from CountAPI
-          const getResponse = await fetch('https://api.countapi.xyz/get/portfolio.miteshchaudhari/views', {
-            method: 'GET',
-          });
-          
-          if (getResponse.ok) {
-            const getData = await getResponse.json();
-            if (getData && (typeof getData.value === 'number' || typeof getData.count === 'number')) {
-              const count = getData.value || getData.count || 0;
-              setViews(count);
-              return;
-            }
-          }
-        } catch (getErr) {
-          console.log('CountAPI get failed');
-        }
-        
-        // Fallback to localStorage
-        const localCount = localStorage.getItem('portfolio_views');
-        if (localCount) {
-          setViews(parseInt(localCount, 10));
         } else {
-          setViews(1);
+          // Already counted, just get current value
+          try {
+            const getResponse = await fetch('https://api.countapi.xyz/get/portfolio.miteshchaudhari/views', {
+              method: 'GET',
+            });
+            
+            if (getResponse.ok) {
+              const getData = await getResponse.json();
+              if (getData && (typeof getData.value === 'number' || typeof getData.count === 'number')) {
+                const count = getData.value || getData.count || 0;
+                setViews(count);
+                return;
+              }
+            }
+          } catch (getErr) {
+            console.log('CountAPI get failed');
+          }
         }
+        
+        // Last resort: localStorage (browser-specific, but shows something)
+        const localCount = localStorage.getItem('portfolio_views');
+        if (!hasCounted && localCount) {
+          const newCount = parseInt(localCount, 10) + 1;
+          localStorage.setItem('portfolio_views', newCount.toString());
+          setViews(newCount);
+          sessionStorage.setItem(sessionKey, 'true');
+        } else if (!hasCounted) {
+          localStorage.setItem('portfolio_views', '1');
+          setViews(1);
+          sessionStorage.setItem(sessionKey, 'true');
+        } else {
+          const stored = localStorage.getItem('portfolio_views');
+          setViews(stored ? parseInt(stored, 10) : 1);
+        }
+      } catch (err) {
+        console.error('Failed to update view count', err);
+        // Ultimate fallback
+        const localCount = localStorage.getItem('portfolio_views');
+        setViews(localCount ? parseInt(localCount, 10) : 1);
       }
     };
 
