@@ -10,14 +10,80 @@ import {
 
 const Footer = () => {
   const [showPhone, setShowPhone] = useState(false);
-  const [views, setViews] = useState(0);
+  const [views, setViews] = useState(null); // null = loading, 0 = error or no count
 
   useEffect(() => {
-    // Fetch and update visitor count
-    fetch('https://api.countapi.xyz/hit/miteshchaudhari18-portfolio/views')
-      .then((res) => res.json())
-      .then((data) => setViews(data.value))
-      .catch((err) => console.error("Failed to fetch view count", err));
+    // Update visitor count using CountAPI
+    // Check if we've already counted this session
+    const sessionKey = 'portfolio_view_counted';
+    const hasCounted = sessionStorage.getItem(sessionKey);
+    
+    const updateViewCount = async () => {
+      try {
+        // If we haven't counted this session, increment the counter
+        // Otherwise, just get the current value
+        const endpoint = hasCounted 
+          ? 'https://api.countapi.xyz/get/miteshchaudhari18-portfolio/views'
+          : 'https://api.countapi.xyz/hit/miteshchaudhari18-portfolio/views';
+        
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Accept': 'application/json',
+          },
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // CountAPI returns { value: number } on success
+        if (data && typeof data.value === 'number') {
+          setViews(data.value);
+          // Mark that we've counted this session
+          if (!hasCounted) {
+            sessionStorage.setItem(sessionKey, 'true');
+          }
+        } else {
+          console.log('API Response:', data);
+          // Try alternative response format
+          const countValue = data.value ?? data.count ?? data.hits;
+          if (countValue !== undefined) {
+            setViews(countValue);
+            if (!hasCounted) {
+              sessionStorage.setItem(sessionKey, 'true');
+            }
+          } else {
+            console.error('Unexpected response format:', data);
+            setViews(1); // Default to 1 if first visit
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch view count", err);
+        // On error, try to get the value without incrementing
+        if (!hasCounted) {
+          try {
+            const getResponse = await fetch('https://api.countapi.xyz/get/miteshchaudhari18-portfolio/views');
+            const getData = await getResponse.json();
+            if (getData && typeof getData.value === 'number') {
+              setViews(getData.value);
+            } else {
+              setViews(0);
+            }
+          } catch (getErr) {
+            console.error("Failed to get view count", getErr);
+            setViews(0);
+          }
+        } else {
+          setViews(0);
+        }
+      }
+    };
+
+    updateViewCount();
   }, []);
 
   const handleScroll = (sectionId) => {
@@ -116,7 +182,7 @@ const Footer = () => {
       {/* Fixed Visitor Counter at Bottom Right */}
       <div className="fixed bottom-4 right-4 z-50 px-4 py-2 bg-black border border-white/20 rounded">
         <span className="text-white text-sm font-bold">
-          Views: {views.toLocaleString()}
+          Views: {views !== null ? views.toLocaleString() : '...'}
         </span>
       </div>
     </footer>
