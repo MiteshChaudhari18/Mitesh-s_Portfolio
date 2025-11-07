@@ -35,7 +35,7 @@ const Home = () => {
             </p>
 
             <a
-              href="https://drive.google.com/file/d/1dv9OcdB7zWnDMeQ6HnLX7xVHzJVir1W5/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1j0_MGQwDs-sLkDG8XbbMOU2ccDSAXa0O/view?usp=sharing"
               download
               className="inline-flex items-center gap-2 px-4 py-2 border border-[#800020] text-sm text-white hover:bg-[#800020] hover:border-[#800020] rounded-full transition duration-500"
             >
