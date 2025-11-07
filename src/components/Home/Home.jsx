@@ -75,7 +75,7 @@ const Home = () => {
               <li className="flex items-center gap-3">
                 <SiLeetcode className="text-[#FFA116] text-xl hover:scale-110 transition-transform duration-300" />
                 <a
-                  href="https://leetcode.com/u/MiteshChaudhari18/"
+                  href="https://leetcode.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#800020]"
@@ -86,7 +86,7 @@ const Home = () => {
               <li className="flex items-center gap-3">
                 <SiHackerrank className="text-[#2EC866] text-xl hover:scale-110 transition-transform duration-300" />
                 <a
-                  href="https://www.hackerrank.com/profile/mit2012003"
+                  href="https://www.hackerrank.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#800020]"
