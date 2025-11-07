@@ -198,16 +198,37 @@ export const projects = [
   },
   {
     id: 1,
+    title: "Real-Time Threat Intelligence Dashboard",
+    description:
+    "A web-based cybersecurity dashboard that analyzes live threat data from multiple APIs to detect and assess malicious IPs, domains, and files in real time.",
+    image: removebgLogo, 
+    tags: ["Node.js", "Express", "React.js", "Tailwind CSS", "Recharts", "VirusTotal API", "Shodan API", "AbuseIPDB"],
+    github: "https://github.com/MiteshChaudhari18/Real_Time_Threat.git",
+    webapp: "https://real-time-threat.vercel.app/",
+  },
+  {  
+   id: 2,
+   title: "Real-Time Collaborative Code Editor",
+   description:
+    "A real-time code editor that allows multiple users to write, edit, and collaborate on code simultaneously. Features include authentication, room-based collaboration, email invitations, syntax highlighting, and live presence indicators.",
+   image: movierecLogo,
+   tags: ["React JS","Tailwind CSS","Node.js","Express","MongoDB","WebSocket","Yjs","Monaco Editor","Nodemailer"],
+   github: "https://github.com/MiteshChaudhari18/Oniontor.git",
+   webapp: "https://collab-editor-client-lyart.vercel.app/"
+  },
+
+  {
+    id: 3,
     title: "Crop Prediction Using Machine Learning",
     description:
       "ML system that recommends suitable crops based on soil, weather, and environmental conditions.",
     image: csprepLogo,
     tags: ["HTML", "CSS", "JavaScript", "Machine Learning", "React JS", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com/MiteshChaudhari18/Crop_Management_System.git",
+    github: "https://github.com/MiteshChaudhari18/Collab_Editor.git",
     webapp: "https://crop-management-system-2.onrender.com/",
   },
   {
-    id: 2,
+    id: 4,
     title: "Boolean Expression Solver",
     description:
       "Simplifies Boolean expressions and evaluates logic circuits for educational and technical use.",
@@ -217,7 +238,7 @@ export const projects = [
     webapp: "https://boolean-expression-solver.vercel.app/",
   },
   {
-    id: 3,
+    id: 5,
     title: "Password Strength Checker",
     description: "Checks the complexity and strength of user-entered passwords.",
     image: npmLogo,
@@ -226,7 +247,7 @@ export const projects = [
     webapp: "https://password-strength-checker-ashen.vercel.app/",
   },
   {
-    id: 4,
+    id: 6,
     title: "QR Generator",
     description: "Chrome extension for creating QR codes from user input.",
     image: taskremLogo,
@@ -235,7 +256,7 @@ export const projects = [
     webapp: "https://qr-code-genrator-ten.vercel.app/",
   },
   {
-    id: 5,
+    id: 7,
     title: "Explore-The-World",
     description: "An interactive travel website showcasing destinations visually.",
     image: webverLogo,
@@ -244,3 +265,4 @@ export const projects = [
     webapp: "https://explore-the-world-delta.vercel.app/",
   },
 ];
+
