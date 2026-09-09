@@ -49,10 +49,7 @@ const About = () => {
           </h3>
 
           <p className="text-sm sm:text-base text-gray-400 mb-6 mt-8 leading-normal">
-            I am a full-stack developer with over 2 years of experience in building
-            scalable web applications. Skilled in both front-end and back-end development,
-            I specialize in the MERN stack and other modern technologies to create seamless
-            user experiences and efficient solutions.
+            I am a Cybersecurity Analyst specializing in Vulnerability Assessment and Penetration Testing (VAPT). I have hands-on experience in Web, API, Network, and Cloud Security Assessments, with a strong understanding of identifying vulnerabilities, analyzing security risks, and providing effective remediation recommendations. I am passionate about helping organizations strengthen their security posture and protect their digital infrastructure.
           </p>
 
           {/* Social Icons */}
