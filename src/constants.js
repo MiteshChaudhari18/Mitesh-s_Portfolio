@@ -36,6 +36,7 @@ import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
+import LumiLogo from './assets/company_logo/lumi.jpeg';
 import celebalLogo from './assets/company_logo/celebal.jpeg';
 import internpeLogo from './assets/company_logo/internpe.jpeg';
 import AccentureLogo from './assets/company_logo/Accenture.png';
@@ -104,8 +105,25 @@ export const SkillsInfo = [
 ];
 
 export const experiences = [
-  {
+   {
     id: 0,
+    img: celebalLogo,
+    role: "Celebal Intern",
+    company: "Lumiverse Solutions Pvt Ltd. ",
+    date: "Jan 2026 - Present",
+    desc: "Cybersecurity Analyst specializing in Vulnerability Assessment, Penetration Testing, and Security Assessments. (Network VAPT, Web VAPT, API VAPT, Cloud Security Assessment)",
+    skills: [
+      "Nmap", "Nessus", "NetExec (CrackMapExec)", "enum4linux-ng",
+"Impacket", "BloodHound", "Responder", "Hydra", "Metasploit",
+"Wireshark", "Burp Suite", "OWASP ZAP", "FFUF", "Feroxbuster",
+"Gobuster", "Nikto", "Wapiti", "SQLMap", "Postman", "Nuclei",
+"cURL", "AWS CLI", "ScoutSuite", "Prowler", "Pacu"
+    ],
+    certificate: "https://drive.google.com/file/d/18r4tcZC05TdDzqONnFZ6c-5hGEGNIhnX/view?usp=sharing",
+  },
+  
+  {
+    id: 1,
     img: celebalLogo,
     role: "Celebal Intern",
     company: "Celebal Technology",
@@ -118,7 +136,7 @@ export const experiences = [
     certificate: "https://drive.google.com/file/d/18r4tcZC05TdDzqONnFZ6c-5hGEGNIhnX/view?usp=drive_link",
   },
   {
-    id: 1,
+    id: 2,
     img: internpeLogo,
     role: "INTERNSHIP At INTERNPE",
     company: "INTERNPE",
@@ -131,7 +149,7 @@ export const experiences = [
     certificate: "https://drive.google.com/file/d/1Y5uYI90UViVImdYHy8V7IXKIfLSuGZle/view?usp=drive_link",
   },
   {
-    id: 2,
+    id: 3,
     img: AccentureLogo,
     role: "Project Management Job Simulation",
     company: "Accenture",
@@ -144,7 +162,7 @@ export const experiences = [
     certificate: "https://drive.google.com/file/d/14uH5iq9rSsSZkk_395vmq2wHZCkbNH5t/view?usp=sharing",
   },
   {
-    id: 3,
+    id: 4,
     img: datapolarisLogo,
     role: "Developer | Management Member",
     company: "Data polaris",
