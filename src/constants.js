@@ -119,7 +119,7 @@ export const experiences = [
 "Gobuster", "Nikto", "Wapiti", "SQLMap", "Postman", "Nuclei",
 "cURL", "AWS CLI", "ScoutSuite", "Prowler", "Pacu"
     ],
-    certificate: "https://drive.google.com/file/d/18r4tcZC05TdDzqONnFZ6c-5hGEGNIhnX/view?usp=sharing",
+    certificate: "https://drive.google.com/file/d/1DQizGwAtH2sdltJZkzRYUWDNFX_Bnr-h/view?usp=sharing",
   },
   
   {
