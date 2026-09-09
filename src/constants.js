@@ -36,7 +36,7 @@ import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
-import LumiLogo from './assets/company_logo/lumi.jpeg';
+import LumiLogo from './assets/company_logo/lumiverse.png';
 import celebalLogo from './assets/company_logo/celebal.jpeg';
 import internpeLogo from './assets/company_logo/internpe.jpeg';
 import AccentureLogo from './assets/company_logo/Accenture.png';
@@ -107,7 +107,7 @@ export const SkillsInfo = [
 export const experiences = [
    {
     id: 0,
-    img: celebalLogo,
+    img: LumiLogo,
     role: "Celebal Intern",
     company: "Lumiverse Solutions Pvt Ltd. ",
     date: "Jan 2026 - Present",
