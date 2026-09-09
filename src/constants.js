@@ -108,7 +108,7 @@ export const experiences = [
    {
     id: 0,
     img: LumiLogo,
-    role: "Celebal Intern",
+    role: "CyberSecurity Analyst",
     company: "Lumiverse Solutions Pvt Ltd. ",
     date: "Jan 2026 - Present",
     desc: "Cybersecurity Analyst specializing in Vulnerability Assessment, Penetration Testing, and Security Assessments. (Network VAPT, Web VAPT, API VAPT, Cloud Security Assessment)",
